@@ -30,6 +30,7 @@ public class BucketSort {
 
         //2.初始化桶
         int bucketNum = array.length;
+        //所有的桶都保存在ArrayList集合中， 每一个桶都被定义成一个链表（ LinkedList<Double>） ， 这样便于在尾部插入元素。
         ArrayList<LinkedList<Double>> bucketList = new ArrayList<LinkedList<Double>>(bucketNum);
         for(int i = 0; i < bucketNum; i++){
             bucketList.add(new LinkedList<Double>());
