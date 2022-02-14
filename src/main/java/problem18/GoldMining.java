@@ -1,15 +1,18 @@
 package problem18;
 
 /**
- * Created by weimengshu on 2018/10/26.
- */
+ * @description 解决金矿问题-动态规划
+ * @author zhangke
+ * @date 15:16 2022/2/14
+ * @version 1.0
+ **/
 public class GoldMining {
 
     /**
      * 获得金矿最优收益
-     * @param w  工人数量
-     * @param p  金矿开采所需工人数量
-     * @param g  金矿储量
+     * @param w  工人数量 w = 10;
+	 * @param p  金矿开采所需工人数量  int[] p = {5, 5, 3, 4 ,3};
+     * @param g  金矿储量 int[] g = {400, 500, 200, 300 ,350};
      */
     public static int getBestGoldMiningV3(int w, int[] p, int[] g){
         //创建当前结果
@@ -26,12 +29,12 @@ public class GoldMining {
         return results[w];
     }
 
-    /**
-     * 获得金矿最优收益
-     * @param w  工人数量
-     * @param p  金矿开采所需工人数量
-     * @param g  金矿储量
-     */
+	/**
+	 * 获得金矿最优收益
+	 * @param w  工人数量 w = 10;
+	 * @param p  金矿开采所需工人数量  int[] p = {5, 5, 3, 4 ,3};
+	 * @param g  金矿储量 int[] g = {400, 500, 200, 300 ,350};
+	 */
     public static int getBestGoldMiningV2(int w, int[] p, int[] g){
         //创建表格
         int[][] resultTable = new int[g.length+1][w+1];
@@ -49,13 +52,14 @@ public class GoldMining {
         return resultTable[g.length][w];
     }
 
-    /**
-     * 获得金矿最优收益
-     * @param w  工人数量
-     * @param n  可选金矿数量
-     * @param p  金矿开采所需工人数量
-     * @param g  金矿储量
-     */
+
+	/**
+	 * 获得金矿最优收益
+	 * @param w  工人数量 w = 10;
+	 * @param n  可选金矿数量 n=5
+	 * @param p  金矿开采所需工人数量  int[] p = {5, 5, 3, 4 ,3};
+	 * @param g  金矿储量 int[] g = {400, 500, 200, 300 ,350};
+	 */
     public static int getBestGoldMining(int w, int n, int[] p, int[] g){
         if(w==0 || n==0){
             return 0;
@@ -71,7 +75,8 @@ public class GoldMining {
         int w = 10;
         int[] p = {5, 5, 3, 4 ,3};
         int[] g = {400, 500, 200, 300 ,350};
-        System.out.println("最优收益：" + getBestGoldMining(w, g.length, p, g));
+        //System.out.println("最优收益：" + getBestGoldMining(w, g.length, p, g));
+		System.out.println("最优收益：" + getBestGoldMiningV3(w,  p, g));
     }
 
 }

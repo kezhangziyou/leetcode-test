@@ -54,12 +54,15 @@ public class FindNearestNumber {
     }
 
     public static void main(String[] args) {
-        int[] numbers = {1,2,3,4,5};
-        //打印12345之后的10个全排列整数
-        for(int i=0; i<10;i++){
-            numbers = findNearestNumber(numbers);
-            outputNumbers(numbers);
-        }
+        //int[] numbers = {1,2,3,4,5};
+		int[] numbers = {1,0,3,1,2};
+		numbers = findNearestNumber(numbers);
+		outputNumbers(numbers);
+        ////打印12345之后的10个全排列整数
+        //for(int i=0; i<10;i++){
+        //    numbers = findNearestNumber(numbers);
+        //    outputNumbers(numbers);
+        //}
     }
 
     //输出数组
