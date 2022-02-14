@@ -1,9 +1,11 @@
 package problem13;
 
 /**
- * Created by weimengshu on 2018/7/13.
- */
-
+ * @description 无序数组排序后的最大相邻差
+ * @author zhangke
+ * @date 8:45 PM 2/14/22
+ * @version 1.0
+ **/
 public class MaxSortedDistance {
 
     public static int getMaxSortedDistance(int[] array){
@@ -25,7 +27,7 @@ public class MaxSortedDistance {
             return 0;
         }
 
-        //2.初始化桶
+        //2.初始化桶,这里只需要记下每个桶的最大值和最小值就
         int bucketNum = array.length;
         Bucket[] buckets = new Bucket[bucketNum];
         for(int i = 0; i < bucketNum; i++){
@@ -45,6 +47,7 @@ public class MaxSortedDistance {
         }
 
         //4.遍历桶，找到最大差值
+		//：使用临时变量 leftMax，在每一轮迭代时存储当前左侧桶的最大值
         int leftMax = buckets[0].max;
         int maxDistance = 0;
         for (int i=1; i<buckets.length; i++) {

@@ -32,6 +32,15 @@ public class PowerOf2 {
     }
 
     public static void main(String[] args) {
+
+    	int a=3;
+		int b=8;
+    	System.out.println("左移："+(a<<1));
+		System.out.println("右移："+(a>>1));
+		System.out.println("与："+(a&b));
+		System.out.println("或："+(a|b));
+		System.out.println("或移："+(a^b));
+
         System.out.println(isPowerOf2V3(32));
         System.out.println(isPowerOf2V3(19));
     }
