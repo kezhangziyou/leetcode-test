@@ -35,7 +35,7 @@ public class QuickSort {
         int right = endIndex;
 
         while( left != right) {
-            //控制right指针比较并左移
+            //顺序很重要，先从右边开始往左找，控制right指针比较并左移
             while(left<right && arr[right] > pivot){
                 right--;
             }
@@ -43,7 +43,7 @@ public class QuickSort {
             while( left<right && arr[left] <= pivot) {
                 left++;
             }
-            //交换left和right指向的元素
+            // // 上面的循环结束表示找到了位置或者(i>=j)了，交换两个数在数组中的位置，交换left和right指向的元素
             if(left<right) {
                 int p = arr[left];
                 arr[left] = arr[right];
@@ -51,12 +51,13 @@ public class QuickSort {
             }
         }
 
-        //pivot和指针重合点交换
+        //pivot和指针重合点交换，交换 pivot 和 left 的值
         arr[startIndex] = arr[left];
         arr[left] = pivot;
 
         return left;
     }
+
 
     /**
      * 分治（单边循环法）
@@ -83,7 +84,7 @@ public class QuickSort {
         return mark;
     }
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
         int[] arr = new int[] {4,4,6,5,3,2,8,1};
         quickSort(arr, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
