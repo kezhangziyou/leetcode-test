@@ -61,6 +61,7 @@ public class BinaryTreeTraversalLevel {
     }
 
     public static void main(String[] args) {
+    	//链表节点的顺序恰恰是二叉树前序遍历的顺 序。链表中的空值，代表二叉树节点的左孩子或右孩子为空的情况。
         LinkedList<Integer> inputList = new LinkedList<Integer>(Arrays.asList(new Integer[]{3,2,9,null,null,10,null,null,8,null,4,}));
         TreeNode treeNode = createBinaryTree(inputList);
         System.out.println("层序遍历：");

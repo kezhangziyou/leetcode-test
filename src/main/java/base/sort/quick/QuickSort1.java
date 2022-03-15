@@ -20,7 +20,7 @@ public class QuickSort1 {
         if (null==arr|| arr.length==0||arr.length==1) {
             return;
         }
-		sortv2(arr, 0, arr.length - 1);
+		sortV2(arr, 0, arr.length - 1);
 
     }
     /**
@@ -29,7 +29,7 @@ public class QuickSort1 {
      * @param left    起始下标
      * @param right    结束下标
      */
-    private static void sortv1(int[] arr, int left, int right) {
+    private static void sortV1(int[] arr, int left, int right) {
     	if(left>right){
     		return ;
 		}
@@ -59,9 +59,53 @@ public class QuickSort1 {
         arr[left] = arr[i];
         arr[i] = pivot;
 
-		sortv1(arr,left,i-1);
-		sortv1(arr,i+1,right);
+		sortV1(arr,left,i-1);
+		sortV1(arr,i+1,right);
     }
+
+	/**
+	 * 分治（双边循环法）
+	 * @param arr     待交换的数组
+	 * @param left    起始下标
+	 * @param right    结束下标
+	 */
+	private static void sortV2(int[] arr, int left, int right) {
+		if(left>=right){
+			return ;
+		}
+		// 取第一个位置的元素作为基准元素（也可以选择随机位置）
+		int pivot = arr[left];
+		int i = left;
+		int j = right;
+
+		while( i <j) {
+			//顺序很重要，先从右边开始往左找，控制right指针比较并左移
+			while(i<j && arr[j] >= pivot){
+				j--;
+			}
+			if(i <j){
+				arr[i]=arr[j];
+				i++;
+			}
+			//控制left指针比较并右移
+			while( i<j && arr[i] <= pivot) {
+				i++;
+			}
+			if(i <j){
+				arr[j]=arr[i];
+				j--;
+			}
+
+		}
+
+		//pivot和指针重合点交换，交换 pivot 和 left 的值
+		arr[i] = pivot;
+
+		sortV2(arr,left,i-1);
+		sortV2(arr,i+1,right);
+	}
+
+
 
 	/**
 	 * 分治（单边循环法）
@@ -69,7 +113,7 @@ public class QuickSort1 {
 	 * @param left    起始下标
 	 * @param right    结束下标
 	 */
-	private static void sortv2(int[] arr, int left, int right) {
+	private static void sortV3(int[] arr, int left, int right) {
 		if(left>right){
 			return ;
 		}
@@ -89,8 +133,8 @@ public class QuickSort1 {
 		arr[left] = arr[mark];
 		arr[mark] = pivot;
 
-		sortv2(arr,left,mark-1);
-		sortv2(arr,mark+1,right);
+		sortV3(arr,left,mark-1);
+		sortV3(arr,mark+1,right);
 	}
 
 
